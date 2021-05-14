@@ -1,0 +1,35 @@
+<div class="container shadow p-3 mb-5 bg-white rounded cart">
+  <div>
+    <h2>Your Cart</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of getValues(availableItems)">
+          <td>{{i.description}}</td>
+          <td><a class="btn btn-primary" (click)="addItem(i)">+</a>{{i.quantity}}<a class="btn btn-primary" (click)="removeItem(i)">-</a></td>
+          <td>Rs.{{i.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Total Cost</td>
+            <td></td>
+            <td>{{totalPrice()}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a routerLink="{{directLink}}" class="btn btn-primary">
+    <div (click)="isLog()">Proceed to Payment</div>
+  </a>
+</div>

@@ -1,0 +1,19 @@
+<div class="card shadow-lg">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Available Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of availableMenuItems">
+                <td><img src="{{i.img}}" style="height: 8rem;width: 8rem;">{{i.description}}</td>
+                <td><a class="btn btn-primary" (click)="onAdd(i)">+</a>{{i.availableQuantity}}<a class="btn btn-primary" (click)="onSub(i)">-</a></td>
+                <td>Rs.{{i.price}}</td>
+                <td><a class="btn btn-danger" (click)="removeItem(i)">Remove Item</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

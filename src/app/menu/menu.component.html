@@ -1,0 +1,30 @@
+<!--Go to cart-->
+<div style="float: right;">
+    <a class="btn btn-primary" routerLink="../cart">Your Cart has {{totalQuantity()}} items</a>
+</div>
+
+<app-search [mitems]=mItems></app-search>
+<router-outlet></router-outlet>
+
+<!--Food item Cards-->
+<div class="cardDisplay" id="cardDisp">
+    <div class="row">
+        <div *ngFor="let m of mItems;let i=index;">
+            <div class="column" id={{m.description}}>
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" src="{{m.img}}" style="height:12rem;width:15rem" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{m.description}}</h5>
+                        <p class="card-text" style="font-size:1rem;">Rs.{{m.price}}/{{m.typeOfQuantity}}</p>
+                        <a class="btn btn-primary" (click)="addItem(m)">+</a>
+                        <a class="btn btn-primary">{{itemCount.get(m.description)}} in cart</a>
+                        <a class="btn btn-primary" (click)="removeItem(m)">-</a>
+                        <div ng-show="alertBox" class="alert alert-danger" role="alert" [hidden]=!isMsg *ngIf="m.description==itemName">
+                            {{msg}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

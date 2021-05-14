@@ -1,0 +1,11 @@
+.card{
+    margin-top: 15vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+.card-header{
+    background-color: rgb(240, 240, 240);
+}
+.error{
+    color: red;
+}
